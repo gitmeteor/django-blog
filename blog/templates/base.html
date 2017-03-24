@@ -1,0 +1,81 @@
+<!--base.html-->
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Blog</title>
+    {% load static %}
+<!--
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+    <link rel="stylesheet" href="http://picturebag.qiniudn.com/blog.css">
+    -->
+    <link href="//cdn.bootcss.com/materialize/0.98.0/css/materialize.css" rel="stylesheet">
+    <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/materialize/0.98.0/js/materialize.js"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+</head>
+<body>
+<div class="header">
+  <div class="navbar-fixed">
+    <!-- 固定导航栏 -->
+    <nav class="blue">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo right">BLOG-WZ</a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><a href="{% url "home" %}">Home</a></li>
+        <li><a href="{% url "archives" %}">Archives</a></li>
+        <li>
+          <form class="col s12" action="/blog/search/" method="get">
+            <div class="input-field col s6">
+                <input type="text" name="search" placeholder="search" />
+              <label for="first_name"></label>
+            </div>
+          </form>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+</div>
+
+
+  <main class="Site-content">
+
+
+    <div class="container">
+        <div>
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+  </main>
+
+ <footer class="page-footer blue">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">TodoList</h5>
+                <p class="grey-text text-lighten-4">TodoList App</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">链接</h5>
+                <ul>
+                  <li><a class="grey-text text-lighten-3" href="#!">Github</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Weibo</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Django</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Python</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2017 Copyright
+            <a class="grey-text text-lighten-4 right" href="#!">更多链接</a>
+            </div>
+          </div>
+        </footer>
+
+</body>
+</html>

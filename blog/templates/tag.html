@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block pagetitle %}
+  {% for post in post_list %}
+  <title>{{ post.category }}</title>
+  {% endfor %}
+{% endblock %}
+
+{% block content %}
+  <div>
+    {% for post in post_list %}
+      <h2><a href="{% url 'detail' id=post.id %}">{{ post.title }}</a></h2>
+        <p>
+          Pulished：<a>{{ post.date_time | date:'Y/m/d' }}</a>&nbsp&nbsp
+          Category：<a href="{% url 'search_tag' post.category %}">{{ post.category | title}}</a>&nbsp&nbsp
+        </p>
+        <br />
+    {% endfor %}
+  </div>
+{% endblock %}

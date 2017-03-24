@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div>
+    {% if error %}
+        <h3 class="post-title">No related Articles</h3>
+    {% else %}
+    {% for post in post_list %}
+      <section>
+        <header>
+          <h3><a href="{% url "detail" id=post.id %}">{{ post.title }}</a> </h3>
+            <p>
+              Time:  <a href="#">{{ post.date_time |date:"Y /m /d"}}</a>
+              <a href="{% url "search_tag" tag=post.category %}">{{ post.category }}</a>
+            </p>
+        </header>
+      </section>
+    {% endfor %}
+  {% endif %}
+  </div>
+{% endblock %}
